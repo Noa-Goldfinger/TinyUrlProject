@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
     links: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Link'
-    }], // שימוש ב-ObjectId להפניה לקישורים
+    }],
 });
 
 // יצוא המודל

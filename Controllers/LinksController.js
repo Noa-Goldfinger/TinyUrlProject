@@ -3,7 +3,7 @@ import LinkModel from "../Models/LinkModel.js";
 const LinksController = {
     getList: async (req, res) => {
         try {
-            const link = await LinkModel.find();//ללא סינון
+            const link = await LinkModel.find();
             res.json(link);
         } catch (e) {
             res.status(400).json({ message: e.message });
@@ -32,7 +32,7 @@ const LinksController = {
     },
     getById: async (req, res) => {
         try {
-            const link = await LinkModel.findById(req.params.id);//שליפה לפי מזהה
+            const link = await LinkModel.findById(req.params.id);
             res.json(link);
         } catch (e) {
             res.status(400).json({ message: e.message });
@@ -42,7 +42,7 @@ const LinksController = {
     add: async (req, res) => {
         const { originalUrl, targetValues } = req.body;
         try {
-            const newlink = await LinkModel.create({ originalUrl, targetValues });//הוספת חדש
+            const newlink = await LinkModel.create({ originalUrl, targetValues });
             res.json(newlink);
         } catch (e) {
             res.status(400).json({ message: e.message });
@@ -54,7 +54,7 @@ const LinksController = {
         try {
             const updatedLink = await LinkModel.findByIdAndUpdate(id, req.body, {
                 new: true,
-            });//עדכון לפי מזהה
+            });
             res.json(updatedLink);
         } catch (e) {
             res.status(400).json({ message: e.message });
@@ -64,7 +64,7 @@ const LinksController = {
     delete: async (req, res) => {
         const { id } = req.params;
         try {
-            const deleted = await LinkModel.findByIdAndDelete(id);//מחיקה לפי מזהה
+            const deleted = await LinkModel.findByIdAndDelete(id);
             res.json(deleted);
         } catch (e) {
             res.status(400).json({ message: e.message });
